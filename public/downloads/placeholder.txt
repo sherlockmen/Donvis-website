@@ -1,0 +1,1 @@
+DMG files are linked from GitHub Releases for the static homepage.

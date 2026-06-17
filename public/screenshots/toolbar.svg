@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" rx="24" fill="#dff2ff"/>
+  <path fill="#fff" d="M60 282h92v-42h86v-38h116v38h76v42h154v42H60z"/>
+  <rect x="110" y="166" width="580" height="58" rx="14" fill="#2f80ed"/>
+  <circle cx="154" cy="195" r="16" fill="#111827"/>
+  <rect x="188" y="182" width="38" height="26" rx="6" fill="#eaf6ff"/>
+  <rect x="250" y="182" width="38" height="26" rx="6" fill="#eaf6ff"/>
+  <text x="318" y="205" font-family="Arial" font-size="28" font-weight="800" fill="#fff">Donvis</text>
+  <rect x="440" y="182" width="38" height="26" rx="6" fill="#eaf6ff"/>
+  <rect x="502" y="182" width="38" height="26" rx="6" fill="#eaf6ff"/>
+  <text x="566" y="204" font-family="Arial" font-size="23" font-weight="700" fill="#fff">周五 16:20</text>
+</svg>

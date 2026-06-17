@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#eaf6ff"/>
+  <path fill="#fff" d="M88 176h80v-48h80V88h112v40h72v48h224v48H88zM760 420h72v-36h72v-32h96v32h56v36h72v44H760z"/>
+  <text x="92" y="270" font-family="Arial, sans-serif" font-size="78" font-weight="800" fill="#1d2636">Donvis / 驴维斯</text>
+  <text x="92" y="365" font-family="Arial, sans-serif" font-size="54" font-weight="800" fill="#ff6b35">Codex 与 Claude Code</text>
+  <text x="92" y="438" font-family="Arial, sans-serif" font-size="42" font-weight="700" fill="#1d2636">本地菜单栏额度监控工具</text>
+  <rect x="760" y="132" width="320" height="340" rx="28" fill="#fff" stroke="#c8d9e8" stroke-width="4"/>
+  <rect x="812" y="224" width="210" height="18" rx="9" fill="#2f80ed"/>
+  <rect x="812" y="322" width="170" height="18" rx="9" fill="#ff6b35"/>
+  <circle cx="824" cy="180" r="18" fill="#111827"/>
+  <text x="860" y="190" font-family="Arial, sans-serif" font-size="30" font-weight="800" fill="#1d2636">Donvis</text>
+</svg>

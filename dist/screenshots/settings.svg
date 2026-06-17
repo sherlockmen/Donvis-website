@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620">
+  <rect width="800" height="620" rx="24" fill="#dff2ff"/>
+  <rect x="130" y="70" width="540" height="480" rx="28" fill="#fff" stroke="#c8d9e8" stroke-width="3"/>
+  <text x="186" y="138" font-family="Arial" font-size="32" font-weight="800" fill="#1d2636">设置</text>
+  <rect x="188" y="184" width="424" height="62" rx="14" fill="#f8fbff"/>
+  <text x="216" y="224" font-family="Arial" font-size="22" font-weight="700" fill="#1d2636">刷新间隔</text>
+  <rect x="496" y="200" width="80" height="30" rx="15" fill="#2f80ed"/>
+  <circle cx="558" cy="215" r="11" fill="#fff"/>
+  <rect x="188" y="272" width="424" height="62" rx="14" fill="#f8fbff"/>
+  <text x="216" y="312" font-family="Arial" font-size="22" font-weight="700" fill="#1d2636">开机自启</text>
+  <rect x="496" y="288" width="80" height="30" rx="15" fill="#2f80ed"/>
+  <circle cx="558" cy="303" r="11" fill="#fff"/>
+  <rect x="188" y="360" width="424" height="62" rx="14" fill="#f8fbff"/>
+  <text x="216" y="400" font-family="Arial" font-size="22" font-weight="700" fill="#1d2636">额度预警</text>
+  <rect x="496" y="376" width="80" height="30" rx="15" fill="#e8edf3"/>
+  <circle cx="514" cy="391" r="11" fill="#fff"/>
+</svg>

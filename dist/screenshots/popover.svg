@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620">
+  <rect width="800" height="620" rx="24" fill="#dff2ff"/>
+  <rect x="146" y="56" width="508" height="508" rx="24" fill="#fff" stroke="#c8d9e8" stroke-width="3"/>
+  <text x="202" y="120" font-family="Arial" font-size="30" font-weight="800" fill="#1d2636">Donvis</text>
+  <rect x="198" y="160" width="404" height="150" rx="16" fill="#f8fbff"/>
+  <text x="246" y="206" font-family="Arial" font-size="24" font-weight="800" fill="#1d2636">Codex</text>
+  <rect x="246" y="238" width="270" height="18" rx="9" fill="#e8edf3"/>
+  <rect x="246" y="238" width="200" height="18" rx="9" fill="#2f80ed"/>
+  <rect x="246" y="278" width="270" height="18" rx="9" fill="#e8edf3"/>
+  <rect x="246" y="278" width="132" height="18" rx="9" fill="#2f80ed"/>
+  <rect x="198" y="334" width="404" height="150" rx="16" fill="#fff7f2"/>
+  <text x="246" y="380" font-family="Arial" font-size="24" font-weight="800" fill="#1d2636">Claude Code</text>
+  <rect x="246" y="412" width="270" height="18" rx="9" fill="#e8edf3"/>
+  <rect x="246" y="412" width="170" height="18" rx="9" fill="#ff6b35"/>
+  <rect x="246" y="452" width="270" height="18" rx="9" fill="#e8edf3"/>
+  <rect x="246" y="452" width="124" height="18" rx="9" fill="#ff6b35"/>
+</svg>

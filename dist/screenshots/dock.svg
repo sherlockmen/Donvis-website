@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 620">
+  <rect width="800" height="620" rx="24" fill="#dff2ff"/>
+  <rect x="178" y="80" width="444" height="420" rx="28" fill="#fff" stroke="#c8d9e8" stroke-width="3"/>
+  <text x="238" y="150" font-family="Arial" font-size="30" font-weight="800" fill="#1d2636">Donvis Dock</text>
+  <rect x="238" y="198" width="324" height="84" rx="16" fill="#f8fbff"/>
+  <rect x="270" y="238" width="230" height="16" rx="8" fill="#2f80ed"/>
+  <rect x="238" y="306" width="324" height="84" rx="16" fill="#fff7f2"/>
+  <rect x="270" y="346" width="178" height="16" rx="8" fill="#ff6b35"/>
+  <rect x="298" y="524" width="204" height="42" rx="16" fill="#ffffff" opacity=".8"/>
+  <circle cx="348" cy="545" r="18" fill="#111827"/>
+  <circle cx="402" cy="545" r="18" fill="#2f80ed"/>
+  <circle cx="456" cy="545" r="18" fill="#ff6b35"/>
+</svg>
