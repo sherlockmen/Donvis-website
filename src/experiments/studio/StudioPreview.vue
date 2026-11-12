@@ -27,6 +27,10 @@ const chapterProgress = ref(0)
 const exploring = computed(() => chapterProgress.value > .12 || still.value && progress.value === 1)
 const ready = ref(false)
 const failed = ref(false)
+const diagnostics = new URLSearchParams(location.search).get('diagnostics') === '1'
+const diagnosticStage = ref('等待字体加载')
+const failureReason = ref('')
+const failureTrace = ref('')
 const motion = matchMedia('(prefers-reduced-motion: reduce)')
 const reduced = ref(motion.matches)
 const paused = ref(false)
@@ -220,6 +224,9 @@ function stopScene() {
 }
 function useStatic(error: unknown) {
   console.warn('Donvis studio uses its static preview:', error)
+  failureReason.value = error instanceof CustomEvent ? String(error.detail)
+    : error instanceof Error ? `${error.name}: ${error.message}` : String(error)
+  failureTrace.value = error instanceof Error ? error.stack ?? '' : ''
   failed.value = true
   stopScene()
 }
@@ -249,17 +256,22 @@ async function startScene() {
   await nextTick()
   if (disposed || still.value || version !== sceneVersion || !host.value || !character.value || !brandIcon.value) return
   try {
+    diagnosticStage.value = '创建三维场景'
     const current = createStudioScene(host.value, {
       app: appUrl, wool: woolUrl, character: character.value, dock: brandIcon.value,
       featureCard: () => stage.value?.querySelector<HTMLElement>('[data-scarf-wrap] .native-showcase-frame') ?? null,
     })
     scene = current
+    diagnosticStage.value = '更新场景位置'
     current.setPaused(paused.value)
     syncScroll()
+    diagnosticStage.value = '等待围巾和 App 图片'
     await current.ready
     if (disposed || version !== sceneVersion) return
     ready.value = true
+    diagnosticStage.value = '初始化滚动效果'
     lenis = new Lenis({ autoRaf: true, lerp: .115, smoothWheel: true, virtualScroll: paceWheel })
+    diagnosticStage.value = '三维展示正常'
   } catch (error) {
     if (!disposed && version === sceneVersion) useStatic(error)
   }
@@ -268,6 +280,7 @@ function syncMotion() {
   const focusedCanvas = host.value?.contains(document.activeElement)
   reduced.value = motion.matches
   if (motion.matches) {
+    diagnosticStage.value = '遵循系统的减弱动态效果设置'
     stopScene()
     if (focusedCanvas && story.value) focusTarget(story.value)
   } else { void startScene() }
@@ -280,6 +293,7 @@ onMounted(async () => {
   if (story.value) observer.observe(story.value)
   await document.fonts.ready
   if (disposed) return
+  if (reduced.value) diagnosticStage.value = '遵循系统的减弱动态效果设置'
   await startScene()
   syncScroll()
 })
@@ -296,6 +310,14 @@ onBeforeUnmount(() => {
 
 <template>
   <main class="studio" :class="{ 'is-still': still, 'is-ready': ready }" :style="palette" lang="zh-CN">
+    <aside v-if="diagnostics" class="studio-diagnostics" aria-live="polite">
+      <strong>手机渲染检查</strong>
+      <p>系统减弱动态效果：{{ reduced ? '开启' : '关闭' }}</p>
+      <p>模式：{{ still ? '静态展示' : ready ? '三维展示' : '加载中' }}</p>
+      <p>阶段：{{ diagnosticStage }}</p>
+      <p v-if="failureReason">失败原因：{{ failureReason }}</p>
+      <details v-if="failureTrace"><summary>错误位置</summary><pre>{{ failureTrace }}</pre></details>
+    </aside>
     <a class="studio-skip" href="#studio-product" @click="goToProduct">跳到 App 展示</a>
     <header class="studio-header" :class="{ 'is-exploring': exploring }">
       <a class="studio-brand" href="#" aria-label="Donvis，回到开场" @click="goToStart">
@@ -366,6 +388,9 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .studio { --ink: #201c17; background: var(--paper); color: var(--ink); font-family: 'Space Grotesk Variable', 'PingFang SC', 'Microsoft YaHei', sans-serif; -webkit-font-smoothing: antialiased; }
+.studio-diagnostics { position: fixed; z-index: 100; inset: auto 12px 12px; max-height: 45svh; overflow: auto; padding: 14px; border: 1px solid #201c1740; border-radius: 12px; background: #fffaf2f5; color: #201c17; font: 13px/1.5 system-ui, sans-serif; overflow-wrap: anywhere; user-select: text; }
+.studio-diagnostics p { margin: 5px 0 0; }
+.studio-diagnostics pre { white-space: pre-wrap; }
 .studio :deep(*) { box-sizing: border-box; }
 .studio :deep(button), .studio :deep(a) { -webkit-tap-highlight-color: transparent; }
 .studio :deep(a:focus-visible), .studio :deep(button:focus-visible), .studio :deep(canvas:focus-visible) { outline: 2px solid currentColor; outline-offset: 7px; }

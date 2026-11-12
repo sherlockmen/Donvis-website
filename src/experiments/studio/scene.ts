@@ -374,7 +374,9 @@ export function createStudioScene(host: HTMLElement, assets: { app: string; wool
   let woolTexture: THREE.Texture | undefined
   let appTexture: THREE.Texture | undefined
   const loader = new THREE.TextureLoader()
-  const woolReady = loader.loadAsync(assets.wool).then(texture => {
+  const woolReady = loader.loadAsync(assets.wool).catch(error => {
+    throw new Error(`围巾图片下载或解码失败 (${assets.wool})${error instanceof Error ? `: ${error.message}` : ''}`)
+  }).then(texture => {
     if (disposed) { texture.dispose(); return }
     woolTexture = texture
     texture.colorSpace = THREE.SRGBColorSpace
@@ -385,7 +387,9 @@ export function createStudioScene(host: HTMLElement, assets: { app: string; wool
     scarfMaterial.map = scarfMaterial.bumpMap = texture
     scarfMaterial.needsUpdate = true
   })
-  const appReady = loader.loadAsync(assets.app).then(texture => {
+  const appReady = loader.loadAsync(assets.app).catch(error => {
+    throw new Error(`App 图片下载或解码失败 (${assets.app})${error instanceof Error ? `: ${error.message}` : ''}`)
+  }).then(texture => {
     if (disposed) { texture.dispose(); return }
     appTexture = texture
     texture.colorSpace = THREE.SRGBColorSpace
