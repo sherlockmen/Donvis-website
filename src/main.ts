@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import './styles/variables.css'
+import StudioPreview from './experiments/studio/StudioPreview.vue'
+import '@fontsource-variable/space-grotesk'
 import './styles/reset.css'
-import './styles/global.css'
 
-createApp(App).mount('#app')
+createApp(StudioPreview).mount('#app')

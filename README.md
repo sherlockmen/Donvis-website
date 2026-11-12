@@ -1,35 +1,35 @@
-# Donvis / 驴维斯 官网首页
+# Donvis / 驴维斯 官网
 
-基于 `Vite + Vue 3 + TypeScript` 实现的 Donvis 静态官网首页，采用 Pixel Sky Landing Page 风格。
+围巾引导的三维滚动官网，使用 Vue 3、TypeScript、Three.js 与 Lenis。默认首页是已确认的 Studio 效果，旧的 `?study=studio` 链接也可继续使用。功能界面标注为示例数据。
+
+在线访问：[GitHub Pages](https://sherlockmen.github.io/Donvis-website/)。
 
 ## 本地运行
 
+使用 Node.js 22：
+
 ```bash
-npm install
+npm ci
 npm run dev
 ```
 
-## 构建与预览
+## 检查与构建
 
 ```bash
+node --experimental-strip-types src/experiments/studio/pose.check.mjs
 npm run build
+npm run check:static
 npm run preview
 ```
 
-构建产物会输出到 `dist/`，可直接部署到 GitHub Pages、Cloudflare Pages、Vercel、Netlify 或 Nginx 静态目录。
+`npm run build` 包含类型检查，输出到 `dist/`。几何检查覆盖围巾停姿、拖动回位、正反向滚动与不同宽高比；静态检查确认 Pages 子路径的资源可解析。
 
 ## 内容维护
 
-- 站点信息和版本号：`src/data/site.ts`
-- 下载链接：`src/data/downloads.ts`
-- 功能、预览、隐私文案：`src/data/features.ts`
-- FAQ：`src/data/faqs.ts`
+- 页面、导航与无动态效果回退：`src/experiments/studio/StudioPreview.vue`
+- 围巾几何与滚动镜头：`src/experiments/studio/pose.ts`、`scene.ts`、`chapters.ts`
+- 功能展示：`StudioFeatures.vue`、`StudioFeatureDetails.vue`
+- 品牌与下载地址：`src/data/site.ts`
+- 第三方素材许可：`public/licenses/`
 
-## 静态资源
-
-- 品牌图标：`src/assets/donkey-mascot.svg`
-- 像素云：`src/assets/pixel-cloud.svg`
-- 像素草地：`src/assets/pixel-ground.svg`
-- 界面预览占位图：`public/screenshots/`
-
-真实软件截图准备好后，可直接替换 `public/screenshots/` 下的 SVG 文件，并保持同名路径。
+`master` 更新后由 GitHub Actions 构建并发布，详见 [部署说明](./DEPLOY.md)。仓库原有 `dist/` 文件不作为 Pages 发布来源。
